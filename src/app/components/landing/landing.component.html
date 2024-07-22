@@ -1,6 +1,6 @@
 <mat-card class="container full-height2">
     <div class="full-width full-height padding-10px border-box">
-        <div class="flex space-between-center fixed">
+        <div class="flex space-between-center">
             <div><img src="../../../assets/Images/Logo.PNG" alt="logo" class="logo"></div>
             <div class="space-between-center">
             <div class="flex row gap-1em">
@@ -15,7 +15,7 @@
                 <h1><u>Welcome To SAvirtualization</u></h1>
                 <p>Official South African virtual ID and Drivers License Providers</p>
                 <div class="flex gap-1em full-width center-center">
-                    <button mat-fab extended class="green-bg">
+                    <button mat-fab extended class="green-bg" (click)="goToRegistration()">
                         Register
                       </button>
                       <button mat-fab extended class="gold-bg">

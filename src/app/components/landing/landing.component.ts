@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent {
+
+  constructor(private router: Router){}
 
 
   goToAbout() {
@@ -21,6 +24,10 @@ export class LandingComponent {
   goToServices() {
   const services = document.getElementById('services') 
     services?.scrollIntoView({behavior: 'smooth'})
+  }
+
+  goToRegistration() {
+    this.router.navigate(['registration'])
   }
 
 

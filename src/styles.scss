@@ -12,6 +12,7 @@ body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif;
 $green: #007237;
 $gold: #f29d19;
 $white: #ffffff; 
+$black: #000000;
 
 // Sizes
 .full-width {
@@ -32,6 +33,10 @@ $white: #ffffff;
 
 .full-height2 {
     height: auto;
+}
+
+.full-height3 {
+    height: 100dvh;
 }
 
 .half-height {
@@ -165,7 +170,7 @@ $white: #ffffff;
 }
 
 .border-radius-20px {
-    border-radius: 20px;
+    border-radius: 20px !important;
 }
 
 .border-radius-top-left-10px {
@@ -184,6 +189,10 @@ $white: #ffffff;
     box-sizing: border-box;
 }
 
+.border1 {
+    border: 1px solid $black;
+}
+
 // colors
 .green-bg {
     background-color: $green !important;
@@ -195,11 +204,11 @@ $white: #ffffff;
 
 
 .white {
-    color: $white;
+    color: $white !important;
 }
 
 .container {
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .logo {
@@ -223,6 +232,7 @@ $white: #ffffff;
     width: 160px;
 }
 
+
 // Media queries
 @media only screen and (min-width: 480px) {
     .content1 {
@@ -233,6 +243,12 @@ $white: #ffffff;
 
 @media only screen and (max-width: 530px) {
     .contact {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 466px) {
+    .goWrap {
         flex-wrap: wrap;
     }
 }
