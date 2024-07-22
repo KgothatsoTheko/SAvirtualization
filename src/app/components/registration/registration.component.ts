@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-registration',
@@ -21,7 +22,7 @@ export class RegistrationComponent {
   hidePassword = true;
   registrationForm!: FormGroup
 
-  constructor(private location: Location, private snackbar: MatSnackBar){
+  constructor(private shared: SharedService, private snackbar: MatSnackBar){
     this.registrationForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       fullForeName: new FormControl('', Validators.required),
@@ -37,7 +38,7 @@ export class RegistrationComponent {
   }
 
   goBack() {
-    this.location.back()
+    this.shared.goBack()
   }
 
   

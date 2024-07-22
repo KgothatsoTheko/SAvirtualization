@@ -30,5 +30,9 @@ export class LandingComponent {
     this.router.navigate(['registration'])
   }
 
+  goToLogin() {
+    this.router.navigate(['login'])
+  }
+
 
 }
