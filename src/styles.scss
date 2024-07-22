@@ -1,1 +1,240 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; 
+    background-image: url('./assets/Images/coat.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+}
+
+$green: #007237;
+$gold: #f29d19;
+$white: #ffffff; 
+
+// Sizes
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.width-80p {
+    width: 80%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.full-height2 {
+    height: auto;
+}
+
+.half-height {
+    height: 50%;
+}
+
+// flex
+.flex {
+    display: flex !important;
+}
+
+.row {
+    flex-direction: row !important;
+}
+
+// flex-layout
+.center-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.space-between-center {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-center {
+    justify-content: center;
+}
+
+.text-center {
+    align-items: center;
+}
+
+.text-center2 {
+    text-align: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.no-wrap {
+    flex-wrap: nowrap;
+}
+
+// Padding 
+.no-padding {
+    padding: 0;
+}
+
+.padding-5px {
+    padding: 5px;
+}
+
+.padding-10px {
+    padding: 10px;
+}
+
+.padding-20px {
+    padding: 20px;
+}
+
+// margin
+.no-margin {
+    margin: 0;
+}
+
+.margin-10px {
+    margin: 10px;
+}
+
+// gaps 
+.gap-05em {
+    gap: .5em;
+}
+
+.gap-1em {
+    gap: 1em;
+}
+
+.gap-2em {
+    gap: 2em;
+}
+
+.gap-3em {
+    gap: 3em;
+}
+
+.gap-4em {
+    gap: 4em;
+}
+
+// postions 
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.left-2p {
+    left: 2%;
+}
+
+.right-2p {
+    right: 2%;
+}
+
+.index-1 {
+    z-index: -1;
+}
+
+// cursor 
+.pointer {
+    cursor: pointer;
+}
+
+// border 
+.border-radius-10px {
+    border-radius: 10px;
+}
+
+.border-radius-20px {
+    border-radius: 20px;
+}
+
+.border-radius-top-left-10px {
+    border-top-left-radius: 10px;
+}
+
+.border-radius-bottom-left-10px {
+    border-bottom-left-radius: 10px;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+// colors
+.green-bg {
+    background-color: $green !important;
+}
+
+.gold-bg {
+    background-color: $gold !important;
+}
+
+
+.white {
+    color: $white;
+}
+
+.container {
+    opacity: 0.9;
+}
+
+.logo {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.example {
+    width: 160px;
+    height: 120px;
+}
+
+.services {
+    width: 100%;
+    height: 90px;
+    justify-content: center;
+}
+
+.partners {
+    width: 160px;
+}
+
+// Media queries
+@media only screen and (min-width: 480px) {
+    .content1 {
+        height: 330px;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .contact {
+        flex-wrap: wrap;
+    }
+}
+
+
