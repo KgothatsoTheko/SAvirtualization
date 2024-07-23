@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class RegistrationComponent {
   hidePassword = true;
   registrationForm!: FormGroup
 
-  constructor(private shared: SharedService, private snackbar: MatSnackBar){
+  constructor(private shared: SharedService, private snackbar: MatSnackBar, private router: Router){
     this.registrationForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       fullForeName: new FormControl('', Validators.required),
@@ -115,6 +116,7 @@ export class RegistrationComponent {
     } else {
       delete this.registrationForm.controls['confirmPassword']
       console.log('register form', this.registrationForm.value)
+      this.router.navigate(['complete-profile'])
     }
     
   }
