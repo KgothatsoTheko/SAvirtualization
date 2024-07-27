@@ -13,6 +13,11 @@ export class SharedService {
     return data ? JSON.parse(data) : data
   }
 
+  set(key:string, value:any, sessionType:string) {
+    const data = sessionType == 'session' ? sessionStorage.setItem(key, value) : localStorage.setItem(key, value)
+    return data
+  }
+
   goBack() {
     this.location.back()
   }

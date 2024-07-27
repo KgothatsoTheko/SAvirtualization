@@ -8,9 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingComponent } from './components/landing/landing.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { CompleteProfileComponent } from './components/complete-profile/complete-profile.component';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { HomeComponent } from './components/home/home.component';
+import { WelcomeComponent } from './components/home/welcome/welcome.component';
+import { CardsComponent } from './components/home/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { CompleteProfileComponent } from './components/complete-profile/complete
     LandingComponent,
     RegistrationComponent,
     LoginComponent,
-    CompleteProfileComponent
+    CompleteProfileComponent,
+    HomeComponent,
+    WelcomeComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,9 @@ import { CompleteProfileComponent } from './components/complete-profile/complete
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

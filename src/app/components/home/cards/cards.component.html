@@ -1,0 +1,38 @@
+<h3 class="center-center flex">Virtual Cards</h3>
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h3><strong>Virtual Identity Card</strong></h3>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="scene scene--card">
+        <input id="card" type="checkbox">
+        <label for="card">
+          <div class="card">
+            <div class="card__face card__face--front">
+                <div class="center-center flex gap-2em">
+                    <div>
+                        <img src="../../../../assets/Images/south-africa_555604.png" width = "50px" height="50px" alt="SA logo">
+                    </div>
+                    <div class="column flex">
+                        <h4 class="no-margin">REPUBLIC OF SOUTH AFRICA</h4>
+                        <p class="no-margin">NATIONAL IDENTITY CARD</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card__face card__face--back">back</div>
+          </div>
+        </label>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h3><strong>Virtual Driver's License Card</strong></h3>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>This is the content for the Driver's License Card</p>
+    </mat-expansion-panel>
+  </mat-accordion>

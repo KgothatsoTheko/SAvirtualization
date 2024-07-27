@@ -6,9 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  serverUrl = "http://localhost:6666"
+  serverUrl = "http://localhost:0217"
 
   constructor(private http: HttpClient) { }
+
+  login(body: any) {
+    return this.http.post(`${this.serverUrl}/login`, body);
+  }
+
+  refreshToken(body: any) {
+    return this.http.post(`${this.serverUrl}/token`, body);
+  }
 
   genericPost(endpoint:any, body:any) {
     return this.http.post(this.serverUrl + endpoint, body)

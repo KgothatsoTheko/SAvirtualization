@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -23,7 +24,7 @@ export class RegistrationComponent {
   hidePassword = true;
   registrationForm!: FormGroup
 
-  constructor(private shared: SharedService, private snackbar: MatSnackBar, private router: Router){
+  constructor(private shared: SharedService, private snackbar: MatSnackBar, private router: Router, private api: ApiService){
     this.registrationForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       fullForeName: new FormControl('', Validators.required),
@@ -114,9 +115,20 @@ export class RegistrationComponent {
       this.snackbar.open(`Please fill in all fields`, 'Ok', {duration: 2000})
       return;
     } else {
-      delete this.registrationForm.controls['confirmPassword']
       console.log('register form', this.registrationForm.value)
-      this.router.navigate(['complete-profile'])
+      const registerData = this.registrationForm.value
+      this.api.genericPost('/register', registerData).subscribe(
+        (response: any) => {
+          console.log("response:", response)
+          this.shared.set('newUser', JSON.stringify(registerData), 'session')
+          sessionStorage.setItem('user', JSON.stringify(response))
+          this.router.navigate(['/complete-profile']); // Navigate to the home page after successful login
+          this.snackbar.open(`Registeration Successful`, 'Ok', { duration: 2000 });
+        },
+        (error) => {
+          this.snackbar.open(`Register Failed: ${error.error}`, 'Ok', { duration: 2000 });
+        }
+      );
     }
     
   }

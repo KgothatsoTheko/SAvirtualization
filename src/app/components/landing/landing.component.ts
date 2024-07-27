@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,9 @@ import { Router } from '@angular/router';
 })
 export class LandingComponent {
 
-  constructor(private router: Router){}
+  currentYear:number = new Date().getFullYear()
 
+  constructor(private router: Router){}
 
   goToAbout() {
   const about = document.getElementById('about-us')
