@@ -11,17 +11,79 @@
         <label for="card">
           <div class="card">
             <div class="card__face card__face--front">
-                <div class="center-center flex gap-2em">
-                    <div>
-                        <img src="../../../../assets/Images/south-africa_555604.png" width = "50px" height="50px" alt="SA logo">
+                <div class="content-center flex gap-2em full-height">
+                    <div class="column flex space-between-center">
+                        <div>
+                            <img src="../../../../assets/Images/south-africa_555604.png" width = "50px" height="50px" alt="SA logo">
+                        </div>
+                        <div class="flex column gap-1em">
+                            <div>
+                                <h1>⠊⠙</h1>
+                            </div>
+                            <div>
+                                <img src="../../../../assets/Images/ID-text.png" width = "50px" alt="ID-text">
+                            </div>
+                        </div>
                     </div>
-                    <div class="column flex">
+                    <div class="column flex gap-05em">
                         <h4 class="no-margin">REPUBLIC OF SOUTH AFRICA</h4>
                         <p class="no-margin">NATIONAL IDENTITY CARD</p>
+                        <div class="row flex space-between-center">
+                            <div class="column flex">
+                                <p class="no-margin id-green"><small>Surname:</small></p>
+                                <p class="no-margin"></p>
+                                <p class="no-margin id-green"><small>Names:</small></p>
+                                <p class="no-margin"></p>
+                                <p class="no-margin id-green"><small>Sex:</small></p>
+                                <p class="no-margin"></p>
+                                <p class="no-margin id-green"><small>Nationality:</small></p>
+                                <p class="no-margin"></p>
+                                <p class="no-margin id-green"><small>Identity Number:</small></p>
+                                <p class="no-margin"></p>
+                                <p class="no-margin id-green"><small>Date of Birth:</small></p>
+                                <p class="no-margin"></p>
+                                <p class="no-margin id-green"><small>Country of Birth:</small></p>
+                                <p class="no-margin"></p>
+                                <p class="no-margin id-green"><small>Status:</small></p>
+                                <p class="no-margin"></p>
+                                
+                            </div>
+                            <div class="column flex">
+                                <img src="" alt="profile-image" width="35px" height="45px">
+                                <p class="no-margin id-green"><small>Signature:</small></p>
+                                <p class="no-margin"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card__face card__face--back">back</div>
+            <div class="card__face card__face--back">
+                <div class="content-center flex gap-4em">
+                    <div class="column flex">
+                        <p class="no-margin id-green text-center2"><small>Conditions:</small></p>
+                        <p class="no-margin"><small>This card has been issued by the Department of Home Affairs in terms of the Identification Act, Act 68 of 1997</small></p>
+                        <span><small>For enquiry or verification purposes contact 0800 60 1190</small></span>
+                    </div>
+                    <div class="column flex text-center2">
+                        <p class="no-margin id-green"><small>Date of Issue:</small></p>
+                        <p class="no-margin"><small>{{date}}</small></p>
+                        <p class="no-margin"></p>
+                    </div>
+                </div><br><br>
+                <div class="content-center flex gap-2em">
+                    <div>
+                        <img src="" alt="secondImage">
+                        <h3>barcode</h3>
+                    </div>
+                    <div class="column flex">
+                        <div class="text-center2">cardNumber</div>
+                        <div class="text-center2">
+                            <ngx-barcode6 [bc-format]="'CODE39'" [bc-value]='value' [bc-width]="width" [bc-height]="height"></ngx-barcode6>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
           </div>
         </label>
       </div>
@@ -33,6 +95,107 @@
           <h3><strong>Virtual Driver's License Card</strong></h3>
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <p>This is the content for the Driver's License Card</p>
+      <div class="scene2 scene2--card2">
+        <input id="card2" type="checkbox">
+        <label for="card2">
+          <div class="card2">
+            <div class="card__face2 card__face--front2">
+                <div class="gap-3em flex conlie border-box text-center stripes relative">
+                    <p class="no-margin">DRIVING LICENSE</p>
+                    <span class="flex-1"></span>
+                    <div>
+                        <img src="../../../../assets/Images/sadc2.png" width="50px" height="50px" alt="" class="absolute sadc">
+                    </div>
+                    <p class="no-margin"><small>SOUTH AFRICA</small></p>
+                </div>
+                <div class="space-between-center flex border-box padding-5px">
+                    <div class="column">
+                        <p class="no-margin"><small>CARTA DE CONDUCAO</small></p>
+                        <h4 class="no-margin">K THEKO</h4>
+                        <div class="row gap-2em flex">
+                            <p class="no-margin"><small>ID No:</small></p>
+                            <p class="no-margin"><small>02/0207175222083</small></p>
+                            <p class="no-margin"><small>MALE</small></p>
+                        </div>
+                        <div class="row flex">
+                            <p class="no-margin"><small>Birth:</small></p>
+                            <span class="flex-1"></span>
+                            <small class="no-margin">17/07/2002 ZA</small>
+                            <div class="gap-1em flex"><br>
+                                <small class="no-margin">Restriction:</small>
+                                <small class="no-margin">0</small>
+                            </div>
+                        </div>
+                        <div class="row flex gap-1em">
+                            <p class="no-margin"><small>Licence Number:</small></p>
+                            <small class="no-margin">403700001CT6T</small>
+                            <div class="gap-1em flex"><br>
+                                <small class="no-margin">No: 1</small>
+                            </div>
+                        </div>
+                        <div class="row flex">
+                            <p class="no-margin"><small>Valid:</small></p>
+                            <span class="flex-1"></span>
+                            <p class="no-margin"><small>29/07/2022 - 28/07/2027</small></p>
+                        </div>
+                        <div class="row flex">
+                            <p class="no-margin"><small>Issued:</small></p>
+                            <span class="flex-1"></span>
+                            <p class="no-margin"><small>ZA</small></p>
+                        </div>
+                        <div class="row flex">
+                            <p class="no-margin"><small>code:</small></p>
+                            <span class="flex-1"></span>
+                            <p class="no-margin">C1</p>
+                        </div>
+                        <div class="row flex">
+                            <p class="no-margin"><small>Vehiclerestriction:</small></p>
+                            <span class="flex-1"></span>
+                            <p class="no-margin">0</p>
+                        </div>
+                        <div class="row flex">
+                            <p class="no-margin"><small>First issue:</small></p>
+                            <span class="flex-1"></span>
+                            <p class="no-margin"><small>27/07/2022</small></p>
+                        </div>
+                        <div class="text-center2">
+                            <p><small>Signature</small></p>
+                        </div>
+                    </div>
+                    <div class="column text-center2">
+                        <img src="" alt="profile-image2" width="35px" height="45px">
+                    </div>
+                </div>
+            </div>
+            <div class="card__face2 card__face--back2">
+                <div class="row flex center-center">
+                    <ngx-barcode6 [bc-format]="'CODE39'" [bc-value]='value2' [bc-width]="width2" [bc-height]="height2"></ngx-barcode6>
+                </div>
+                <div class="space-between flex border-box padding-left-right-5px">
+                    <div class="column flex">
+                        <small class="no-margin">DRIVER RESTRICTIONS</small>
+                        <small class="no-margin">0 None</small>
+                        <small class="no-margin">1 Glasses / Contact lenses</small>
+                        <small class="no-margin">2 Artifical limb</small>
+                    </div>
+                    <div class="column flex">
+                        <small class="no-margin">PrDP CATEGORIES</small>
+                        <small class="no-margin">P Passengers</small>
+                        <small class="no-margin">G Goods</small>
+                        <small class="no-margin">D Dangerous goods</small>
+                    </div>
+                    <div class="column flex">
+                        <small class="no-margin">VEHICLE RESTRICTIONS</small>
+                        <small class="no-margin">0 None</small>
+                        <small class="no-margin">1 Automatic transmission</small>
+                        <small class="no-margin">2 Electrically powered</small>
+                        <small class="no-margin">3 Physically disabled</small>
+                        <small class="no-margin">4 Bus > 16000 kg (GVM) permitted</small>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </label>
+      </div>
     </mat-expansion-panel>
   </mat-accordion>

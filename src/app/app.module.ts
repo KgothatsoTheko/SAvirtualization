@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { WelcomeComponent } from './components/home/welcome/welcome.component';
 import { CardsComponent } from './components/home/cards/cards.component';
+import { NgxBarcode6Module } from 'ngx-barcode6';
+
 
 @NgModule({
   declarations: [
@@ -34,8 +36,11 @@ import { CardsComponent } from './components/home/cards/cards.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxBarcode6Module,
+    
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

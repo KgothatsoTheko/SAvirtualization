@@ -1,6 +1,9 @@
+$id-bg: #e0e0c6;
+$dl-bg: #afb996;
+
 .scene {
     // width: 200px;
-    height: 260px;
+    height: 280px;
     border: 1px solid #CCC;
     margin: 10px 0;
     perspective: 600px;
@@ -32,16 +35,77 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    color: white;
+    color: black;
     font-weight: bold;
     backface-visibility: hidden;
   }
   
   .card__face--front {
-    background: red;
+    background: $id-bg;
   }
   
   .card__face--back {
-    background: blue;
+    background: $id-bg;
     transform: rotateY(180deg);
   }
+
+  .scene2 {
+    // width: 200px;
+    height: 330px;
+    border: 1px solid #CCC;
+    margin: 10px 0;
+    perspective: 600px;
+  }
+  
+  .card2 {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  #card2:checked + label .card2 {
+    transform: rotateY(180deg);
+  }
+  
+  .card__face2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: black;
+    font-weight: bold;
+    backface-visibility: hidden;
+  }
+  
+  .card__face--front2 {
+    background: $dl-bg;
+  }
+  
+  .card__face--back2 {
+    background: #bb617f;
+    transform: rotateY(180deg);
+  }
+
+  .sadc {
+    right: 115px;
+    top: -5px;
+  }
+
+  .conlie {
+    padding: 5px;
+    // background-color: lightblue;
+  }
+
+  .stripes {
+    background: repeating-linear-gradient(
+      -45deg,
+      #fff 0px,
+      #fff 10px,
+      #ab517f 10px,
+      #ab517f 20px,
+    );
+  }
+
+  
