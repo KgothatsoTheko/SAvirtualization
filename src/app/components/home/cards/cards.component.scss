@@ -38,6 +38,9 @@ $dl-bg: #afb996;
     color: black;
     font-weight: bold;
     backface-visibility: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
   }
   
   .card__face--front {
@@ -51,9 +54,8 @@ $dl-bg: #afb996;
 
   .scene2 {
     // width: 200px;
-    height: 330px;
+    height: 350px;
     border: 1px solid #CCC;
-    margin: 10px 0;
     perspective: 600px;
   }
   
@@ -84,7 +86,7 @@ $dl-bg: #afb996;
   }
   
   .card__face--back2 {
-    background: #bb617f;
+    background: #fbdfe8;
     transform: rotateY(180deg);
   }
 
@@ -106,6 +108,11 @@ $dl-bg: #afb996;
       #ab517f 10px,
       #ab517f 20px,
     );
+  }
+
+  .fingerprint {
+    width: 150px;
+    background: white;
   }
 
   
