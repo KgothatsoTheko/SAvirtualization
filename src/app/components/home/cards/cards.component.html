@@ -11,8 +11,8 @@
         <label for="card">
           <div class="card">
             <div class="card__face card__face--front">
-                <div class="content-center flex gap-2em full-height">
-                    <div class="column flex space-between-center full-width">
+                <div class="content-center flex gap-3em full-height">
+                    <div class="column flex space-between-center">
                         <div>
                             <img src="../../../../assets/Images/south-africa_555604.png" width = "50px" height="50px" alt="SA logo">
                         </div>
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column flex gap-05em full-width">
+                    <div class="column flex gap-05em">
                         <h4 class="no-margin">REPUBLIC OF SOUTH AFRICA</h4>
                         <p class="no-margin">NATIONAL IDENTITY CARD</p>
                         <div class="row flex gap-5em">
@@ -48,8 +48,8 @@
                                 <p class="no-margin"></p>
                                 
                             </div>
-                            <div class="column flex">
-                                <img src="" alt="profile-image" width="35px" height="45px">
+                            <div class="column flex content-center gap-1em">
+                                <img src="" alt="profile-image" width="50px" height="50px">
                                 <p class="no-margin id-green"><small>Signature:</small></p>
                                 <p class="no-margin"></p>
                             </div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card__face card__face--back">
+            <div class="card__face card__face--back back">
                 <div class="content-center flex gap-4em">
                     <div class="column flex">
                         <p class="no-margin id-green text-center2"><small>Conditions:</small></p>
@@ -69,11 +69,11 @@
                         <p class="no-margin"><small>{{date}}</small></p>
                         <p class="no-margin"></p>
                     </div>
-                </div><br><br>
+                </div>
+                <mat-divider></mat-divider>
                 <div class="content-center flex gap-2em">
-                    <div>
+                    <div class="text-center flex">
                         <img src="" alt="secondImage">
-                        <h3>barcode</h3>
                     </div>
                     <div class="column flex">
                         <div class="text-center2">cardNumber</div>
@@ -81,6 +81,9 @@
                             <ngx-barcode6 [bc-format]="'CODE39'" [bc-value]='value' [bc-width]="width" [bc-height]="height"></ngx-barcode6>
                         </div>
                     </div>
+                </div>
+                <div class="flex content-center">
+                    <h3 class="no-margin">barcode</h3>
                 </div>
                 
             </div>

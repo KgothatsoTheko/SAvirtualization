@@ -3,10 +3,12 @@ $dl-bg: #afb996;
 
 .scene {
     // width: 200px;
-    height: 280px;
+    height: 250px;
     border: 1px solid #CCC;
-    margin: 10px 0;
+    margin-top: 10px;
     perspective: 600px;
+    font-size: 12px;
+    border-radius: 15px;
   }
   
   input {
@@ -45,11 +47,24 @@ $dl-bg: #afb996;
   
   .card__face--front {
     background: $id-bg;
+    background-image: url('../../../../assets/Images/background-idea1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-blend-mode: hue;
   }
   
   .card__face--back {
     background: $id-bg;
     transform: rotateY(180deg);
+  }
+
+  .back {
+    background-image: url('../../../../assets/Images/backgroundback-idea1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-blend-mode: hue;
   }
 
   .scene2 {
