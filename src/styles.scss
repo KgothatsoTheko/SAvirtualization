@@ -184,8 +184,6 @@ $black: #000000;
     right: 0;
 }
 
-
-
 .left-2p {
     left: 2%;
 }
@@ -244,6 +242,10 @@ $black: #000000;
 
 .white {
     color: $white !important;
+}
+
+.white-bg {
+    background-color: $white !important;
 }
 
 .id-green {

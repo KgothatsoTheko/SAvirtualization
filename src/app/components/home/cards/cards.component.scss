@@ -1,5 +1,5 @@
 $id-bg: #e0e0c6;
-$dl-bg: #afb996;
+$dl-bg: #e1f5d2;
 
 .scene {
     // width: 200px;
@@ -69,9 +69,11 @@ $dl-bg: #afb996;
 
   .scene2 {
     // width: 200px;
-    height: 350px;
+    height: 280px;
     border: 1px solid #CCC;
     perspective: 600px;
+    font-size: 12px;
+    border-radius: 15px;
   }
   
   .card2 {
@@ -94,6 +96,7 @@ $dl-bg: #afb996;
     color: black;
     font-weight: bold;
     backface-visibility: hidden;
+    border-radius: 15px;
   }
   
   .card__face--front2 {
@@ -107,27 +110,38 @@ $dl-bg: #afb996;
 
   .sadc {
     right: 115px;
-    top: -5px;
+    top: 3px;
   }
 
   .conlie {
     padding: 5px;
-    // background-color: lightblue;
+  }
+
+  .car-info {
+    font-size: 10px;
+    letter-spacing: normal;
+    line-height: normal;
   }
 
   .stripes {
     background: repeating-linear-gradient(
-      -45deg,
-      #fff 0px,
+      -52deg,
+      #fff 5px,
       #fff 10px,
-      #ab517f 10px,
-      #ab517f 20px,
+      #f6d9de 10px,
+      #f6d9de 14px,
     );
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .border-top-radius-15px {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
   }
 
   .fingerprint {
     width: 150px;
     background: white;
   }
-
   

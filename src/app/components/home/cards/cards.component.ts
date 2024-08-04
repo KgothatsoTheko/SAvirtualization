@@ -12,7 +12,7 @@ export class CardsComponent {
   value:any = new Date().getTime()
   width:any = 0.4
   height:any = 20
-  value2:any = new Date().getTime()
+  value2:any = 1207175222083
   width2:any = 1.32
   height2:any = 40
   
