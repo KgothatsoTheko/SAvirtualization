@@ -18,6 +18,7 @@
     </div>
     <div class="row flex full-width gap-05em font-s content-center text-center2" *ngIf="showingMenu">
        <div class="column gap-05em" >
+        <label for="upload">
         <mat-card class="text-center2 padding-10px pointer changeHover" (click)="uploadFile()" id="card1">
             <span class="material-symbols-outlined">
                 person
@@ -25,6 +26,7 @@
                 <input type="file" id="upload" hidden>
             <label for="upload" class=" no-margin pointer"><strong>Upload Portrait</strong></label>
         </mat-card>
+    </label>
         <span id="file-choosen">{{fileName}}</span>
        </div>
         <div class="column gap-05em">

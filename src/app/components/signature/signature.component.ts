@@ -17,7 +17,7 @@ export class SignatureComponent implements OnInit {
   signatureImg!: string;
 
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

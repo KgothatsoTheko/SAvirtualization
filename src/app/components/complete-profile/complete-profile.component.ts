@@ -26,6 +26,8 @@ export class CompleteProfileComponent{
   fileChoosen:any
   uploadFileClicked = false;
   hideSignatureClicked = false;
+  card1: any
+  card3: any 
 
 
   constructor(private shared: SharedService, private datePipe: DatePipe, private api: ApiService, private cd: ChangeDetectorRef) {
@@ -34,17 +36,16 @@ export class CompleteProfileComponent{
     console.log('current user:', user)
 
     let file = this.shared.get('portrait', 'session')
-    console.log('portratit:', file)
+    console.log('portrait:', file)
 
     let sign = this.shared.get('signature', 'session')
     console.log('signature:', sign)
-
-    
   }
 
+  // Upload portrait
   uploadFile() {
     if(this.uploadFileClicked) return
-  this.uploadFileClicked = true;
+    this.uploadFileClicked = true;
 
     this.upload = document.getElementById('upload') as HTMLInputElement;
     this.fileChoosen = document.getElementById('file-choosen');
@@ -54,12 +55,10 @@ export class CompleteProfileComponent{
         const input = event.target as HTMLInputElement;
         if (input.files && input.files.length > 0) {
           console.log(input.files[0]);
-          const card1 = document.getElementById('card1')
-          card1!.style.backgroundColor = 'green' 
-          card1!.removeChild(input)
           this.fileChoosen.textContent = input.files[0].name;
           this.fileName = input.files[0].name
           this.shared.set('portrait', JSON.stringify({ name: input.files[0].name, size: input.files[0].size, type: input.files[0].type }), 'session')
+          this.card1 = document.getElementById('card1')!.style.backgroundColor = 'green'
         }
       });
     } else {
@@ -86,7 +85,6 @@ export class CompleteProfileComponent{
   }
 
   complete() {
-
     const startDate1 = this.startDate.value
     const endDate1 = this.endDate.value
     const firstIssued1 = this.profileForm.controls['firstIssued'].value
@@ -99,17 +97,11 @@ export class CompleteProfileComponent{
     }
     console.log("complete profile", this.profileForm.value);
     const see = this.shared.get('portrait', 'session')
-    console.log(see);
-    
+    console.log(see); 
   }
 
   hideSignature() {
-    if(this.hideSignatureClicked) {return }else {
-      const card3 = document.getElementById('card3')
-    console.log(card3);
-    card3!.style.backgroundColor = 'green' 
-    card3!.removeAttribute('changeHover')
-    }
+    if(this.hideSignatureClicked) return
     this.hideSignatureClicked = true
     this.showSignature = true
     this.showingMenu = false
