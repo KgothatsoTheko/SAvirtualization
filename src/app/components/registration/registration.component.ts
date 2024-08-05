@@ -64,9 +64,7 @@ export class RegistrationComponent {
    } else {
     date = '19'
    }
-   console.log(this.dateOfBirth);
    this.year = date + this.dateOfBirth.slice(0, 2);
-   console.log(this.year)
    this.month = this.dateOfBirth.slice(2, 4);
    this.day = this.dateOfBirth.slice(4, 6);
   
@@ -115,14 +113,12 @@ export class RegistrationComponent {
       this.snackbar.open(`Please fill in all fields`, 'Ok', {duration: 2000})
       return;
     } else {
-      console.log('register form', this.registrationForm.value)
       const registerData = this.registrationForm.value
       this.api.genericPost('/register', registerData).subscribe(
         (response: any) => {
           console.log("response:", response)
-          this.shared.set('newUser', JSON.stringify(registerData), 'session')
-          sessionStorage.setItem('user', JSON.stringify(response))
-          this.router.navigate(['/complete-profile']); // Navigate to the home page after successful login
+          this.shared.set('newUser', JSON.stringify(response), 'session')
+          this.router.navigate(['/complete-profile']); // Navigate to the complete profile page after successful login
           this.snackbar.open(`Registeration Successful`, 'Ok', { duration: 2000 });
         },
         (error) => {

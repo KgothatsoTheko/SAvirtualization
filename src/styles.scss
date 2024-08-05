@@ -14,10 +14,11 @@ $id-green: #439373;
 $gold: #f29d19;
 $white: #ffffff; 
 $black: #000000;
+$red: red;
 
 // Sizes
 .full-width {
-    width: 100%;
+    width: 100% !important;
 }
 
 .half-width {
@@ -119,6 +120,11 @@ $black: #000000;
 
 .padding-20px {
     padding: 20px;
+}
+
+// Font sizes
+.font-s {
+    font-size: small;
 }
 
 // margin
@@ -237,6 +243,10 @@ $black: #000000;
 
 .gold-bg {
     background-color: $gold !important;
+}
+
+.red-bg {
+    background-color: $red !important;
 }
 
 

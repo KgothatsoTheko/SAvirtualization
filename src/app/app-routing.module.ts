@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { WelcomeComponent } from './components/home/welcome/welcome.component';
 import { CardsComponent } from './components/home/cards/cards.component';
+import { SignatureComponent } from './components/signature/signature.component';
 
 const routes: Routes = [
   {path: "", redirectTo: 'landing', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path: 'welcome', component: WelcomeComponent},
     {path: 'cards', component: CardsComponent},
   ]},
+  {path: 'signature', component: SignatureComponent}
 ];
 
 @NgModule({

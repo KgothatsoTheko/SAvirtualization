@@ -1,4 +1,4 @@
-<mat-card class="container full-height">
+<mat-card class="container full-height3">
     <div class="full-width padding-10px border-box">       
             <span class="material-symbols-outlined padding-10px border-box round border1" (click)="goBack()">
             arrow_back
@@ -13,25 +13,39 @@
     <div class="flex center-center">
         <p>To complete your profile we must verify all your information, please also complete:</p>
     </div>
-    <div class="center-center row flex full-width gap-05em">
-        <mat-card class="text-center2 padding-10px">
+    <div class="center-center flex row full-width">
+       <app-signature *ngIf="showSignature" [hideSignature] = "showSignature" (newItemEvent)="handleEvent($event)" (newSignature)="handleEvent2($event)"></app-signature>
+    </div>
+    <div class="row flex full-width gap-05em font-s content-center text-center2" *ngIf="showingMenu">
+       <div class="column gap-05em" >
+        <mat-card class="text-center2 padding-10px pointer changeHover" (click)="uploadFile()" id="card1">
             <span class="material-symbols-outlined">
                 person
                 </span>
-            <h4 class=" no-margin"><strong>Upload Potrait</strong></h4>
+                <input type="file" id="upload" hidden>
+            <label for="upload" class=" no-margin pointer"><strong>Upload Portrait</strong></label>
         </mat-card>
-        <mat-card class="text-center2 padding-10px">
-            <span class="material-symbols-outlined">
-                fingerprint
-                </span>
-            <h4 class=" no-margin"><strong>Take Fingerprint</strong></h4>
-        </mat-card>
-        <mat-card class="text-center2 padding-10px">
-            <span class="material-symbols-outlined">
-                signature
-                </span>
-            <h4 class=" no-margin"><strong>Upload signature</strong></h4>
-        </mat-card>
+        <span id="file-choosen">{{fileName}}</span>
+       </div>
+        <div class="column gap-05em">
+            <mat-card class="text-center2 padding-10px changeHover" id="card2">
+                <span class="material-symbols-outlined">
+                    fingerprint
+                    </span>
+                <h4 class=" no-margin"><strong>Take Fingerprint</strong></h4>
+            </mat-card>
+            <span>No Fingerprint</span>
+        </div>
+        <div class="column gap-05em">
+            <mat-card class="text-center2 padding-10px pointer changeHover" (click)="hideSignature()" id="card3">
+                <span class="material-symbols-outlined">
+                    signature
+                    </span>
+                <h4 class=" no-margin"><strong>Take Signature</strong></h4>
+            </mat-card>
+            <span>{{element}}</span>
+        </div>
+        
     </div><br>
     <div>
         <mat-checkbox (change)="check()">Do you own drivers License?</mat-checkbox>

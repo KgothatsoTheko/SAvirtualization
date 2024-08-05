@@ -24,6 +24,7 @@
     "jsbarcode": "^3.11.6",
     "ngx-barcode6": "^1.0.25",
     "rxjs": "~7.8.0",
+    "signature_pad": "^5.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },

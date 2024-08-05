@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { WelcomeComponent } from './components/home/welcome/welcome.component';
 import { CardsComponent } from './components/home/cards/cards.component';
 import { NgxBarcode6Module } from 'ngx-barcode6';
+import { SignatureComponent } from './components/signature/signature.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NgxBarcode6Module } from 'ngx-barcode6';
     CompleteProfileComponent,
     HomeComponent,
     WelcomeComponent,
-    CardsComponent
+    CardsComponent,
+    SignatureComponent
   ],
   imports: [
     BrowserModule,
