@@ -106,6 +106,10 @@ export class CompleteProfileComponent{
     this.showSignature = true
     this.showingMenu = false
     this.element = "Signature Taken ✅"
+    this.card3 = document.getElementById('card3');
+    console.log("card 3 =", this.card3);
+    this.card3.style.backgroundColor = 'green'
+    
   }
 
   handleEvent(event:any) {
