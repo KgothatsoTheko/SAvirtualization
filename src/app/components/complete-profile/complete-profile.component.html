@@ -114,7 +114,7 @@
         </div>
     </form>
     <div class="flex center-center">
-        <button mat-raised-button class="green-bg white full-width border-radius-20px" (click)="complete()">
+        <button mat-raised-button color="accent" class=" black full-width border-radius-20px" (click)="complete()" [disabled]="valid1 || valid2">
             Complete Profile
         </button>
     </div>

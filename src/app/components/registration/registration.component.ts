@@ -116,7 +116,6 @@ export class RegistrationComponent {
       const registerData = this.registrationForm.value
       this.api.genericPost('/register', registerData).subscribe(
         (response: any) => {
-          console.log("response:", response)
           this.shared.set('newUser', JSON.stringify(response), 'session')
           this.router.navigate(['/complete-profile']); // Navigate to the complete profile page after successful login
           this.snackbar.open(`Registeration Successful`, 'Ok', { duration: 2000 });

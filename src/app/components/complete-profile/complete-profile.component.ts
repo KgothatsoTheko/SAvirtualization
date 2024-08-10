@@ -1,6 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -28,18 +30,19 @@ export class CompleteProfileComponent{
   hideSignatureClicked = false;
   card1: any
   card3: any 
+  valid1 = true
+  valid2 = true
+  currentUser:any
 
 
-  constructor(private shared: SharedService, private datePipe: DatePipe, private api: ApiService, private cd: ChangeDetectorRef) {
+  constructor(private shared: SharedService, 
+    private datePipe: DatePipe, 
+    private api: ApiService, 
+    private cd: ChangeDetectorRef, 
+    private snackbar: MatSnackBar,
+    private router: Router) {
 
-    let user = this.shared.get('user', 'session')
-    console.log('current user:', user)
-
-    let file = this.shared.get('portrait', 'session')
-    console.log('portrait:', file)
-
-    let sign = this.shared.get('signature', 'session')
-    console.log('signature:', sign)
+    this.currentUser = this.shared.get('newUser', 'session')
   }
 
   // Upload portrait
@@ -54,13 +57,24 @@ export class CompleteProfileComponent{
       this.upload.addEventListener('change', (event: Event) => {
         const input = event.target as HTMLInputElement;
         if (input.files && input.files.length > 0) {
-          console.log(input.files[0]);
           this.fileChoosen.textContent = input.files[0].name;
           this.fileName = input.files[0].name
           this.shared.set('portrait', JSON.stringify({ name: input.files[0].name, size: input.files[0].size, type: input.files[0].type }), 'session')
           this.card1 = document.getElementById('card1')!.style.backgroundColor = 'green'
+          const formData = new FormData();
+          formData.append('file', input.files[0], input.files[0].name)
+          this.api.genericPost(`/upload/${this.currentUser.idNumber}`,formData).subscribe(
+            (response:any) => {
+              console.log("upload success")
+            },
+            (error:any) => {
+              this.snackbar.open(`error: ${error.error}`, 'Ok', { duration: 2000 });
+            }
+          )
+          this.valid1 = false
         }
-      });
+      }
+      );
     } else {
       console.log("something went wrong...");
       
@@ -95,9 +109,25 @@ export class CompleteProfileComponent{
       this.profileForm.get('valid')?.setValue(`${formattedStartDate} - ${formattedEndDate}`);
       this.profileForm.get('firstIssued')?.setValue(`${formattedfirstIssued}`);
     }
-    console.log("complete profile", this.profileForm.value);
-    const see = this.shared.get('portrait', 'session')
-    console.log(see); 
+
+    if (this.checked) {
+      const form = this.profileForm.value
+      this.api.genericPost(`/update-user/${this.currentUser.idNumber}`,{license: form}).subscribe(
+        (response:any) => {
+          console.log("Updated User");
+        },
+        (error: any) => {
+          this.snackbar.open(`error: ${error.error}`, 'Ok', { duration: 2000 });
+        }
+      )
+    }
+
+    if(!this.valid1 && !this.valid2 ) {
+      this.router.navigate(['/landing'])
+      sessionStorage.clear()
+      this.snackbar.open(`Registeration Complete, Awaiting Verification`, 'Ok', { duration: 2000 });
+    }
+
   }
 
   hideSignature() {
@@ -106,22 +136,27 @@ export class CompleteProfileComponent{
     this.showSignature = true
     this.showingMenu = false
     this.element = "Signature Taken ✅"
+    this.valid2 = false
     this.card3 = document.getElementById('card3');
-    console.log("card 3 =", this.card3);
     this.card3.style.backgroundColor = 'green'
-    
   }
-
   handleEvent(event:any) {
-    console.log(event)
     this.showSignature = false
     this.showingMenu = event
   }
 
   handleEvent2(event:any) {
     if (event) {
-      console.log(event);
-      this.shared.set('signature',JSON.stringify(event), 'session')
+      this.shared.set('imageData',JSON.stringify(event), 'session')
+      const imageData = this.shared.get('imageData', 'session')
+      this.api.genericPost(`/upload-image/${this.currentUser.idNumber}`,{imageData:imageData}).subscribe(
+        (response:any) => {
+          console.log("uploaded signature")
+        },
+        (error:any) => {
+          this.snackbar.open(`error: ${error.error}`, 'Ok', { duration: 2000 });
+        }
+      )
     } else {
       console.log("something went wrong...");
     }
