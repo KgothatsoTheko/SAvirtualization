@@ -3,7 +3,7 @@ $dl-bg: #e1f5d2;
 
 .scene {
     // width: 200px;
-    height: 250px;
+    height: 290px;
     border: 1px solid #CCC;
     margin-top: 10px;
     perspective: 600px;
@@ -143,5 +143,9 @@ $dl-bg: #e1f5d2;
   .fingerprint {
     width: 150px;
     background: white;
+  }
+
+  .line-normal {
+    line-height: normal;
   }
   

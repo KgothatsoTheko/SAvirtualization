@@ -20,7 +20,7 @@ export class LoginComponent {
   }
 
   loginForm = new FormGroup({
-    idNumber: new FormControl('', Validators.required),
+    idNumber: new FormControl('', [Validators.required, Validators.minLength(13)]),
     password: new FormControl('', Validators.required),
   })
 
@@ -30,18 +30,18 @@ export class LoginComponent {
       this.snackbar.open(`Please fill in all fields`, 'Ok', {duration: 2000})
       return;
     } else {
-    console.log('login',this.loginForm.value);
     const loginData = this.loginForm.value
       this.api.genericPost('/login', loginData).subscribe(
         (response: any) => {
-          localStorage.setItem('access_token', response.access_token);
-          localStorage.setItem('refresh_token', response.refresh_token);
+          console.log("response", response);
+          this.shared.set('currentUser', JSON.stringify(response), 'session')
           this.router.navigate(['/home/welcome']); // Navigate to the home page after successful login
           this.snackbar.open(`Login Successful`, 'Ok', { duration: 2000 });
         },
         (error) => {
           this.snackbar.open(`Login Failed: ${error.error}`, 'Ok', { duration: 2000 });
         }
+        
       );
 
     }

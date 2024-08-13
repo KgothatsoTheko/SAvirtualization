@@ -6,16 +6,22 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  serverUrl = "http://localhost:0217"
+  serverUrl = "http://localhost:217"
 
   constructor(private http: HttpClient) { }
 
   login(body: any) {
-    return this.http.post(`${this.serverUrl}/login`, body);
+    return this.http.post(`${this.serverUrl}/login`, body, {
+      
+      withCredentials: true, // Important for sending cookies like JWT tokens
+    });
   }
 
-  refreshToken(body: any) {
-    return this.http.post(`${this.serverUrl}/token`, body);
+  refreshToken(){
+    return this.http.post(`${this.serverUrl}/token`, {}, {
+      
+      withCredentials: true, // Important for sending cookies like JWT tokens
+    });
   }
 
   genericPost(endpoint:any, body:any) {
@@ -23,7 +29,10 @@ export class ApiService {
   }
 
   genericGet(endpoint:string) {
-    return this.http.get(this.serverUrl + endpoint)
+    return this.http.get(this.serverUrl + endpoint, {
+      responseType: 'blob',
+      withCredentials: true, // Important for sending cookies like JWT tokens
+    })
   }
 
   genericDelete(endpoint:string) {
