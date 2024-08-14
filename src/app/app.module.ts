@@ -15,7 +15,6 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { WelcomeComponent } from './components/home/welcome/welcome.component';
 import { CardsComponent } from './components/home/cards/cards.component';
-import { NgxBarcode6Module } from 'ngx-barcode6';
 import { SignatureComponent } from './components/signature/signature.component';
 
 
@@ -39,7 +38,6 @@ import { SignatureComponent } from './components/signature/signature.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NgxBarcode6Module,
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

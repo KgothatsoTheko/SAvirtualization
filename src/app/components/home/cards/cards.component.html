@@ -45,7 +45,7 @@
                                 <p class="no-margin id-green"><small>Country of Birth:</small></p>
                                 <p class="no-margin">{{this.currentUser.citizenship}}</p>
                                 <p class="no-margin id-green"><small>Status:</small></p>
-                                <p class="no-margin"></p>
+                                <p class="no-margin">CITIZEN</p>
                                 
                             </div>
                             <div class="column flex content-center gap-1em">
@@ -73,17 +73,19 @@
                 <mat-divider></mat-divider>
                 <div class="content-center flex gap-2em">
                     <div class="text-center flex">
-                        <img src="" alt="secondImage">
+                        <img [src]="this.profile" width="25px" height="25px" alt="secondImage">
                     </div>
                     <div class="column flex">
                         <div class="text-center2">cardNumber</div>
                         <div class="text-center2">
-                            <ngx-barcode6 [bc-format]="'CODE39'" [bc-value]='value' [bc-width]="width" [bc-height]="height"></ngx-barcode6>
+                            <img *ngIf="barcode2" [src]="barcode2" alt="Barcode 2" width="100%" height="50px"/>
                         </div>
                     </div>
                 </div>
                 <div class="flex content-center">
-                    <h3 class="no-margin">barcode</h3>
+                    <h3 class="no-margin">
+                        <img *ngIf="barcode1" [src]="barcode1" alt="Barcode" width="100%" height="70px"/>
+                    </h3>
                 </div>
                 
             </div>
@@ -111,19 +113,19 @@
                     </div>
                     <p class="no-margin"><small>SOUTH AFRICA</small></p>
                 </div>
-                <div class="center-center gap-4em flex border-box padding-5px protea">
-                    <div class="column">
+                <div class="center-center gap-4em flex border-box padding-5px">
+                    <div class="column line-height-19px">
                         <p class="no-margin"><small>CARTA DE CONDUCAO</small></p>
-                        <h4 class="no-margin">K THEKO</h4>
+                        <h4 class="no-margin">{{this.currentUser.fullForeName.slice(0,1).toUpperCase()}} {{this.currentUser.lastName.toUpperCase()}}</h4>
                         <div class="row gap-2em flex">
                             <p class="no-margin"><small>ID No:</small></p>
-                            <p class="no-margin"><small>02/0207175222083</small></p>
-                            <p class="no-margin"><small>MALE</small></p>
+                            <p class="no-margin"><small>{{this.currentUser.idNumber.slice(0,2)}}/{{this.currentUser.idNumber}}</small></p>
+                            <p class="no-margin"><small>{{this.currentUser.gender}}</small></p>
                         </div>
                         <div class="row flex">
                             <p class="no-margin"><small>Birth:</small></p>
                             <span class="flex-1"></span>
-                            <small class="no-margin">17/07/2002 ZA</small>
+                            <small class="no-margin">{{this.currentUser.dateOfBirth}} ZA</small>
                             <div class="gap-1em flex"><br>
                                 <small class="no-margin">Restriction:</small>
                                 <small class="no-margin">0</small>
@@ -131,7 +133,7 @@
                         </div>
                         <div class="row flex gap-1em">
                             <p class="no-margin"><small>Licence Number:</small></p>
-                            <small class="no-margin">403700001CT6T</small>
+                            <small class="no-margin">{{this.currentUser.license.licenseNumber}}</small>
                             <div class="gap-1em flex"><br>
                                 <small class="no-margin">No: 1</small>
                             </div>
@@ -139,40 +141,39 @@
                         <div class="row flex">
                             <p class="no-margin"><small>Valid:</small></p>
                             <span class="flex-1"></span>
-                            <p class="no-margin"><small>29/07/2022 - 28/07/2027</small></p>
+                            <p class="no-margin"><small>{{this.currentUser.license.valid}}</small></p>
                         </div>
-                        <div class="row flex">
+                        <div class="row flex gap-5em">
                             <p class="no-margin"><small>Issued:</small></p>
-                            <span class="flex-1"></span>
-                            <p class="no-margin"><small>ZA</small></p>
+                            <p class="no-margin"><small>{{this.currentUser.license.issued}}</small></p>
                         </div>
                         <div class="row flex">
                             <p class="no-margin"><small>code:</small></p>
                             <span class="flex-1"></span>
-                            <p class="no-margin">C1</p>
+                            <p class="no-margin">{{this.currentUser.license.code}}</p>
                         </div>
                         <div class="row flex">
                             <p class="no-margin"><small>Vehiclerestriction:</small></p>
                             <span class="flex-1"></span>
-                            <p class="no-margin">0</p>
+                            <p class="no-margin">{{this.currentUser.license.vehicleRestriction}}</p>
                         </div>
                         <div class="row flex">
                             <p class="no-margin"><small>First issue:</small></p>
                             <span class="flex-1"></span>
-                            <p class="no-margin"><small>27/07/2022</small></p>
+                            <p class="no-margin"><small>{{this.currentUser.license.firstIssued}}</small></p>
                         </div>
                         <div class="text-center2">
-                            <p class="no-margin"><small>Signature</small></p>
+                            <p class="no-margin"><small><img class="no-margin" [src]="this.currentUser.signature.imageData" width="100px" height="50px" alt="noSig"></small></p>
                         </div>
                     </div>
                     <div class="column flex text-center2">
-                        <img src="" alt="profile-image2" width="35px" height="45px">
+                        <img [src]="this.profile" alt="profile-image2" width="35px" height="45px">
                     </div>
                 </div>
             </div>
             <div class="card__face2 card__face--back2 gap-05em flex column">
                 <div class="row flex center-center white-bg border-top-radius-15px">
-                    <ngx-barcode6 [bc-format]="'CODE39'" [bc-value]='value2' [bc-width]="width2" [bc-height]="height2"></ngx-barcode6>
+                    <img *ngIf="barcode1" [src]="barcode1" alt="Barcode" width="100%" height="70px"/>
                 </div>
                 <div class="space-between flex border-box padding-left-right-5px car-info">
                     <div class="column flex">

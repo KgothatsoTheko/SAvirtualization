@@ -35,6 +35,20 @@ export class ApiService {
     })
   }
 
+  genericBarcode(endpoint: string) {
+    return this.http.get(`${this.serverUrl}${endpoint}`, {
+      responseType: 'blob', // Important to get the image as a Blob
+      withCredentials: true, // Important for cookies like JWT tokens
+    });
+  }
+
+  generateBarcode2(text: any) {
+    return this.http.post(`${this.serverUrl}/generate-barcode2`, text, {
+      responseType: 'blob',
+      withCredentials: true,
+    });
+  }
+
   genericDelete(endpoint:string) {
     return this.http.delete(this.serverUrl + endpoint)
   }

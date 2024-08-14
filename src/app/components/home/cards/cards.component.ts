@@ -14,6 +14,8 @@ export class CardsComponent{
 
   currentUser:any
   profile:string | undefined
+  barcode1:string | undefined
+  barcode2:string | undefined
 
   panelOpenState = false;
   date:any = new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear()
@@ -31,7 +33,7 @@ export class CardsComponent{
 
     this.api.genericGet(`/get-file/${this.currentUser.file.id}`).subscribe(
       (response:Blob) => {
-          this.createImageFromBlob(response);
+          this.createImageFromBlob(response, 'profile');
       },
       (error:any) => {
         this.snackbar.open(`Session Expired`, 'Ok', { duration: 2000 });
@@ -39,18 +41,55 @@ export class CardsComponent{
         this.router.navigate(['/login'])
       }
     )
+
+    this.generateBarcode1();
+    this.generateBarcode2();
+
     
   }
 
-  private createImageFromBlob(image: Blob) {
+  private createImageFromBlob(image: Blob, type: string) {
     let reader = new FileReader();
-    reader.addEventListener("load", () => {
-      this.profile = reader.result as string;
+    reader.addEventListener('load', () => {
+      switch (type) {
+        case 'profile':
+          this.profile = reader.result as string;
+          break;
+        case 'barcode1':
+          this.barcode1 = reader.result as string;
+          break;
+        case 'barcode2':
+          this.barcode2 = reader.result as string;
+          break;
+      }
     }, false);
 
     if (image) {
       reader.readAsDataURL(image);
     }
+  }
+
+  generateBarcode1() {
+    this.api.genericBarcode(`/generate-barcode/${this.currentUser.idNumber}`).subscribe(
+      (response: Blob) => {
+        this.createImageFromBlob(response, 'barcode1');
+      },
+      (error: any) => {
+        this.snackbar.open(`Failed to generate barcode`, 'Ok', { duration: 2000 });
+      }
+    );
+  }
+
+  generateBarcode2() {
+    const body = { text: this.currentUser.idNumber };  // Customize the text as needed
+    this.api.generateBarcode2(body).subscribe(
+      (response: Blob) => {
+        this.createImageFromBlob(response, 'barcode2');
+      },
+      (error: any) => {
+        this.snackbar.open(`Failed to generate barcode`, 'Ok', { duration: 2000 });
+      }
+    );
   }
   
 }
