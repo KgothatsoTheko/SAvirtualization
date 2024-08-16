@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  serverUrl = "http://localhost:217"
+  // serverUrl = "http://localhost:4000"
+  serverUrl = environment.nodeApiUrl
+
 
   constructor(private http: HttpClient) { }
 

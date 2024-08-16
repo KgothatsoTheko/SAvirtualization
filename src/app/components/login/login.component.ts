@@ -31,7 +31,7 @@ export class LoginComponent {
       return;
     } else {
     const loginData = this.loginForm.value
-      this.api.genericPost('/login', loginData).subscribe(
+      this.api.login(loginData).subscribe(
         (response: any) => {
           console.log("response", response);
           this.shared.set('currentUser', JSON.stringify(response), 'session')
